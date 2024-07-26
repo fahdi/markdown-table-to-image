@@ -15,36 +15,37 @@ def parse_markdown_table(markdown):
         rows.append(row)
     return headers, rows
 
+
 def create_table_image(headers, rows, cell_width=100, cell_height=30, font_size=12):
     num_cols = len(headers)
     num_rows = len(rows) + 1  # +1 for header row
-    
+
     img_width = cell_width * num_cols
     img_height = cell_height * num_rows
-    
+
     img = Image.new('RGB', (img_width, img_height), color='white')
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("arial.ttf", font_size)
-    
+    font = ImageFont.load_default()
+
     # Draw grid
     for i in range(num_rows + 1):
         draw.line([(0, i * cell_height), (img_width, i * cell_height)], fill='black')
     for i in range(num_cols + 1):
         draw.line([(i * cell_width, 0), (i * cell_width, img_height)], fill='black')
-    
+
     # Write headers
     for col, header in enumerate(headers):
         x = col * cell_width + 5
         y = 5
         draw.text((x, y), header, font=font, fill='black')
-    
+
     # Write data
     for row, data in enumerate(rows):
         for col, cell in enumerate(data):
             x = col * cell_width + 5
             y = (row + 1) * cell_height + 5
             draw.text((x, y), cell, font=font, fill='black')
-    
+
     return img
 
 @app.route('/')
