@@ -56,7 +56,16 @@ Input Markdown table:
 | LoopBack 4 | API-centric & robust   | Complex data-driven APIs   |
 ```
 
-The application will generate a PNG image of this table.
+The application will generate a PNG image of this table, that will look like this:
+
+| Framework  | Key Feature           | Best For                    |
+|------------|----------------------|----------------------------|
+| Express.js | Lightweight & flexible | APIs & small projects      |
+| Nest.js    | Structured & scalable  | Enterprise & complex apps  |
+| Koa.js     | Minimalist & fast      | Custom servers & performance|
+| Adonis.js  | Full-stack MVC         | Rapid full-stack development|
+| LoopBack 4 | API-centric & robust   | Complex data-driven APIs   |
+
 
 ## Contributing
 
